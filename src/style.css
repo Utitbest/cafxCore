@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Noto sans', sans-serif;
+}
+body{
+  background-color: white;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+button{
+  border: none;
+  outline: none;
+}
+li{
+  list-style: none;
+}
+#app{
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(80px, 250px) 1fr;
+}
+header{
+  height: 100%;
+  display: block;
+  background: #4E10EF;
+}
+
+header > div{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows:45px 1fr 120px ;
+  padding: 1em;
+  padding-right:0 ;
+}
+.siteLogo{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.siteLogo img{
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+.Navigator{
+  display: block;
+}
+.Navigator ul{
+  width: 100%;
+  height: 100%;
+  gap: 1.2em;
+  display: grid;
+  padding: 2em 0;
+  grid-template-rows: repeat(9, 1fr);
+}
+.Navigator ul li{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-top-left-radius:40px ;
+  border-bottom-left-radius:40px ;
+}
+.Navigator ul li a{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding-left:2em;
+  justify-content: flex-start;
+  color: white;
+}
+.Navigator ul li a p{
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.quickStart h3{
+  font-size: 17px;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+.quickStart > div{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-left: 1em;
+}
+.quickStart > div p{
+  font-weight: 400;
+  font-size: 13px;
+  color: white;
+}
+#contentArea{
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  padding: 0 .5em;
+}
+#contentArea .topBar{
+  display: grid;
+  align-items: center;
+  grid-template-columns: 300px 1fr;
+}
+
+.topBar > p{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  font-size: clamp(13px, 2vw, 22px);
+  font-weight: 600;
+  color: rgba(22, 22, 22, 1);
+
+}
+#contentArea .topBar .search_Other{
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+  height: 100%;
+}
+#contentArea .topBar .search_Other .searchbar{
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  gap: 6px;
+  flex: 1;
+  height: 36px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius:40px;
+} 
+#contentArea .topBar .search_Other .searchbar input{
+  outline: none;
+  border: none;
+  background: none;
+  width: 100%;
+}
+#contentArea .topBar .search_Other .userIcons{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 40%;
+  height: 100%;
+  padding-right:.4em ;
+  gap: 1em;
+}
+#contentArea .topBar .search_Other .userIcons span{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#contentArea .topBar .search_Other .userIcons span svg{
+  width: 90%;
+  height: 90%;
+} 
+#contentArea .topBar .search_Other .userIcons span img{
+  width: 30px;
+  height:30px;
+  border-radius: 50%;
+  object-position: top;
+}
+.contentHub{
+  display: flex;
+  flex: 1;
+}
+
+
+
+
+/* Dashboard design Start here */
+#Dashboard{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1.3em;
+}
+
+#Dashboard .dashboardNavBar{
+  width: 100%;
+  display: grid;
+  /* grid-template-columns:1fr 1fr 1fr 1fr 150px; */
+  /* grid-auto-rows: minmax(100px, auto); */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1em;
+}
+#Dashboard .dashboardNavBar > div{
+  border-radius: 11px;
+  border: 0.7px solid rgba(0, 0, 0, 0.15);
+  padding:10px 15px;
+}
+
+#Dashboard .dashboardNavBar .Portfolio_money{
+  background: rgba(78, 16, 239, 1);
+  display: flex;
+  gap: .4em;
+}
+
+#Dashboard .dashboardNavBar .Portfolio_money >:nth-child(1){
+  display: flex;
+  width: 3px;
+  height: 80%;
+  background-color: white;
+  border-radius: 10px;
+  
+}
+#Dashboard .dashboardNavBar .Portfolio_money >:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  padding:0 .5em;
+  align-items: start;
+  justify-content: space-between;
+  flex: 1;
+  color: white;
+}
+#Dashboard .dashboardNavBar .Portfolio_money >:nth-child(2) p{  
+  font-size: 9.78px;
+  font-weight: 400;
+}
+#Dashboard .dashboardNavBar .Portfolio_money >:nth-child(2) h3{  
+  font-size: 18.35px;
+  font-weight: 600;
+}
+#Dashboard .dashboardNavBar .Portfolio_money >:nth-child(3){
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  width: 50px;
+}
+#Dashboard .dashboardNavBar .Portfolio_money >:nth-child(3) span{
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 1);
+  width: 23px;
+  height: 23px;
+  border-radius: 5.59px;
+  align-items: center;
+}
+
+
+
+
+#Dashboard .dashboardNavBar .today_PL{
+  background:white;
+  display: flex;
+  gap: .4em;
+}
+
+#Dashboard .dashboardNavBar .today_PL >:nth-child(1){
+  display: flex;
+  width: 3px;
+  height: 80%;
+  background-color: rgba(208, 255, 229, 1);
+  border-radius: 10px;
+}
+#Dashboard .dashboardNavBar .today_PL >:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  padding:0 .5em;
+  align-items: start;
+  justify-content: space-between;
+  flex: 1;
+  color: rgba(22, 22, 22, 1);
+}
+#Dashboard .dashboardNavBar .today_PL >:nth-child(2) p{  
+  font-size: 9.78px;
+  font-weight: 400;
+}
+#Dashboard .dashboardNavBar .today_PL >:nth-child(2) > div{  
+  font-size: 16.35px;
+  font-weight: 600;
+  display: inline;
+  white-space: nowrap;
+}
+#Dashboard .dashboardNavBar .today_PL >:nth-child(2) > div p{
+  font-size: 9.78px;
+
+  display: inline-block;
+}
+#Dashboard .dashboardNavBar .today_PL >:nth-child(3){
+  display: flex;
+  justify-content: flex-end;
+  width: 50px;
+  height: 100%;
+}
+#Dashboard .dashboardNavBar .today_PL >:nth-child(3) span{
+  display: flex;
+  justify-content: center;
+  background: rgba(208, 255, 229, 1);
+  width: 23px;
+  height: 23px;
+  border-radius: 5.59px;
+  align-items: center;
+}
+
+
+
+
+
+#Dashboard .dashboardNavBar .Open_Positions{
+  background:white;
+  display: flex;
+  gap: .4em;
+}
+
+#Dashboard .dashboardNavBar .Open_Positions >:nth-child(1){
+  display: flex;
+  width: 3px;
+  height: 80%;
+  background-color: rgba(181, 154, 246, 1);
+  border-radius: 10px;
+}
+#Dashboard .dashboardNavBar .Open_Positions >:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  padding:0 .5em;
+  align-items: start;
+  justify-content: space-between;
+  flex: 1;
+  color: black;
+}
+#Dashboard .dashboardNavBar .Open_Positions >:nth-child(2) p{  
+  font-size: 9.78px;
+  font-weight: 400;
+}
+#Dashboard .dashboardNavBar .Open_Positions >:nth-child(2) h3{  
+  font-size: 17.35px;
+  font-weight: 600;
+}
+#Dashboard .dashboardNavBar .Open_Positions >:nth-child(3){
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  width: 50px;
+}
+#Dashboard .dashboardNavBar .Open_Positions >:nth-child(3) span{
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 1);
+  width: 23px;
+  height: 23px;
+  border-radius: 5.59px;
+  align-items: center;
+}
+
+
+
+
+
+
+
+#Dashboard .dashboardNavBar .Wallet_Balances{
+  background:white;
+  display: flex;
+  gap: .4em;
+}
+
+#Dashboard .dashboardNavBar .Wallet_Balances >:nth-child(1){
+  display: flex;
+  width: 3px;
+  height: 80%;
+  background-color: rgba(255, 208, 246, 1);
+  border-radius: 10px;
+}
+#Dashboard .dashboardNavBar .Wallet_Balances >:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  padding:0 .5em;
+  align-items: start;
+  justify-content: space-between;
+  flex: 1;
+  color: black;
+}
+#Dashboard .dashboardNavBar .Wallet_Balances >:nth-child(2) .wal{  
+  font-size: 9.78px;
+  font-weight: 400;
+}
+#Dashboard .dashboardNavBar .Wallet_Balances >:nth-child(2) .val2{  
+  font-size: clamp(12px, 2vw, 17px);
+  font-weight: 600;
+  margin: 0;
+}
+#Dashboard .dashboardNavBar .Wallet_Balances >:nth-child(3){
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  width: 50px;
+}
+#Dashboard .dashboardNavBar .Wallet_Balances >:nth-child(3) span{
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 1);
+  width: 23px;
+  height: 23px;
+  border-radius: 5.59px;
+  align-items: center;
+}
+
+
+
+
+
+#Dashboard .dashboardNavBar .Bot_Status{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  gap: .4em;
+}
+#Dashboard .dashboardNavBar .Bot_Status > p{
+  font-size: 9.78px;
+  font-weight: 400;
+}
+#Dashboard .dashboardNavBar .Bot_Status > h3{
+  font-size: 17.35px;
+  font-weight: 600;
+}
+#Dashboard .dashboardNavBar .Bot_Status > button{
+  border-radius: 8px;
+  background: rgba(249, 231, 230, 1);
+  border: 0.61px solid;
+  cursor: pointer;
+  color: rgba(213, 48, 35, 1);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 7.33px 9.77px;
+  border-image-source: radial-gradient(62.22% 62.22% at 31.73% 0%, #A0ABF8 0%, rgba(255, 255, 255, 0) 100%); 
+}
+#Dashboard .dashboardContent{
+  flex: 1;
+  display: flex;
+  flex-direction:column ;
+}
+#Dashboard .dashboardContent .p2pmarket{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2em;
+}
+#Dashboard .dashboardContent .p2pmarket > div{
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  gap: 1em;
+}
+.PL_OverTime{
+  padding: 1em 1.5em;
+}
+.PL_OverTime .timeoverPL{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.PL_OverTime .timeoverPL p{
+  font-weight: 600;
+  font-size: 16px;
+}
+.PL_OverTime .timeoverPL small{
+  font-size: 9px;
+  font-weight: 400;
+}
+.PL_OverTime .chatjs{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+}
+.market_snapshot{
+  display: flex;
+  flex-direction: column;
+  padding: 1em 1.5em;
+}
+.market_snapshot .marketvalue{
+  width: 100%;
+  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+  align-items: center;
+}
+.market_snapshot .latestupdatedcurrencies{
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  flex: 1;
+}
+.market_snapshot .latestupdatedcurrencies > div{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: space-between;
+}
+.market_snapshot .latestupdatedcurrencies > div .coinLogo{ 
+  display: flex;
+  height: 100%;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.market_snapshot .latestupdatedcurrencies > div .coinLogo span{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.market_snapshot .latestupdatedcurrencies > div .coinLogo p{
+  font-size: 13px;
+  font-weight: 400;
+}
+.market_snapshot .latestupdatedcurrencies > div .marketview{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: end;
+}
+.market_snapshot .latestupdatedcurrencies > div .marketview > p{
+  font-size: 13px;
+}
