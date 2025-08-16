@@ -83,6 +83,19 @@ header > div{
   justify-content: flex-start;
   color: white;
 }
+section{
+  width: 100%;
+}
+.Navigator ul li.tabcolor{
+  background-color: white;
+}
+.Navigator ul li.tabcolor svg{
+  fill: #4E10EF !important;
+  color: #4E10EF;
+}
+.Navigator ul li.tabcolor p{
+  color: #4E10EF;
+}
 .Navigator ul li a p{
   font-size: 16px;
   font-weight: 400;
