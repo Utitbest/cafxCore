@@ -89,9 +89,9 @@ section{
 .Navigator ul li.tabcolor{
   background-color: white;
 }
-.Navigator ul li.tabcolor svg{
-  fill: #4E10EF !important;
-  color: #4E10EF;
+.Navigator ul li.tabcolor svg path{
+  fill: #4E10EF;
+  stroke: #4E10EF;
 }
 .Navigator ul li.tabcolor p{
   color: #4E10EF;
