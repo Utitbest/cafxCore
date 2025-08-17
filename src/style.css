@@ -88,6 +88,7 @@ section{
 }
 .Navigator ul li.tabcolor{
   background-color: white;
+  transition: .3s background linear;
 }
 .Navigator ul li.tabcolor svg path{
   fill: #4E10EF;
@@ -95,7 +96,9 @@ section{
 }
 .Navigator ul li.tabcolor p{
   color: #4E10EF;
+  font-weight: 600;
 }
+
 .Navigator ul li a p{
   font-size: 16px;
   font-weight: 400;
@@ -122,11 +125,16 @@ section{
   grid-template-rows: 80px 1fr;
   padding: 0 .5em;
   overflow-y:auto ;
+  position: relative;
 }
 #contentArea .topBar{
   display: grid;
   align-items: center;
   grid-template-columns: 300px 1fr;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: white;
 }
 
 .topBar > p{
@@ -195,7 +203,7 @@ section{
 
 /* Dashboard design Start here */
 #Dashboard{
-  display: none;
+  display: flex;
   flex: 1;
   flex-direction: column;
   gap: 1.3em;
@@ -203,12 +211,12 @@ section{
 #Dashboard .dashboardNavBar{
   width: 100%;
   display: flex;
+  background-color: white;
 }
 .dashboardNavBar .dashboardnavcon{
   width: 100%;
   display: grid;
-  /* grid-template-columns:1fr 1fr 1fr 1fr 150px; */
-  /* grid-auto-rows: minmax(100px, auto); */
+  grid-auto-rows: minmax(100px, auto);
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1em;
 }
@@ -686,7 +694,7 @@ section{
 /* Wallets design Start here */
 
 #Wallet{
-  display: flex;
+  display: none;
   flex: 1;
   flex-direction: column;
   gap: 1.3em;
@@ -816,7 +824,7 @@ section{
   margin-bottom: 1.4em;
 }
 .HotwalletpopNotify ul li{
-  list-style: circle;
+  list-style-type: disc;
   font-size: 16px;
   font-weight: 400;
 }

@@ -1,6 +1,6 @@
 
 document.querySelectorAll('.sidebar-item').forEach(item => {
-  item.addEventListener('click', function() {
+  item.addEventListener('click', function(){
     const target = this.dataset.target;
     document.querySelectorAll('.sidebar-item').forEach(ee =>{
         ee.classList.remove('tabcolor')
@@ -11,7 +11,7 @@ document.querySelectorAll('.sidebar-item').forEach(item => {
       document.querySelectorAll('.main-section').forEach(section => {
         section.style.display = 'none';
       });
-      existingSection.style.display = 'block';
+      existingSection.style.display = 'flex';
     } 
     else {
     //   fetch(`sections/${target}.html`)
@@ -26,7 +26,7 @@ document.querySelectorAll('.sidebar-item').forEach(item => {
           document.querySelectorAll('.main-section').forEach(section => {
             section.style.display = 'none';
           });
-          newSection.style.display = 'block';
+          newSection.style.display = 'flex';
         // })
         // .catch(err => {
         //   console.error(`Error loading ${target}.html`, err);
