@@ -694,7 +694,7 @@ section{
 /* Wallets design Start here */
 
 #Wallet{
-  display: none;
+  display: flex;
   flex: 1;
   flex-direction: column;
   gap: 1.3em;
@@ -707,6 +707,9 @@ section{
   position: relative;
   width: 100%;
   border-radius: 8px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 .diferentWallat{
   width: 100%;
@@ -763,6 +766,7 @@ section{
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .BalanceLookUp > div p{
   font-weight: 24px;
