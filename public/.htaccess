@@ -1,9 +1,0 @@
-RewriteEngine On
-RewriteBase /
-
-# If the request is not for a real file, directory, or section file
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !^/sections/
-# Serve index.html
-RewriteRule ^(.*)$ /index.html [L]
