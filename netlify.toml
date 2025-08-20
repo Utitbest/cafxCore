@@ -1,0 +1,10 @@
+[build]
+  publish = "public" # Tells Netlify "Your site's files are in the 'public' folder"
+
+# The following [[redirects]] rule is a backup for the _redirects file.
+# It does the same thing. Having it in both places is redundant but safe.
+# The _redirects file inside /public takes precedence.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

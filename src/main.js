@@ -35,6 +35,9 @@ function showSection(target) {
     fetch(`sections/${target}.html`)
       .then(res => res.text())
       .then(html => {
+        if (html.includes('<html') || html.includes('<head') || html.includes('<!DOCTYPE')) {
+          throw new Error('Received full page HTML instead of section content');
+        }
         const newSection = document.createElement('section');
         newSection.id = target;
         newSection.classList.add('main-section');
@@ -52,7 +55,7 @@ function showSection(target) {
         fallback.innerHTML = `
           <h1 style="font-size:50px; width:100%; height:100%;
                      align-items:center; justify-content:center; display:flex;">
-            ${target} (not found)
+            ${target} (not found) ⚠️
           </h1>`;
         document.getElementById('section-container').appendChild(fallback);
         fallback.style.display = 'flex';
