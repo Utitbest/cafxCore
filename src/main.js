@@ -54,8 +54,8 @@ function showSection(target) {
         fallback.classList.add('main-section');
         fallback.innerHTML = `
           <h1 style="font-size:50px; width:100%; height:100%;
-                     align-items:center; justify-content:center; display:flex;">
-            ${target} (not found) ⚠️
+          align-items:center; justify-content:center; display:flex;">
+          ${target} (not found) ⚠️
           </h1>`;
         document.getElementById('section-container').appendChild(fallback);
          fallback.classList.add('activeSection')

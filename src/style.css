@@ -40,6 +40,9 @@ header > div{
   grid-template-rows:45px 1fr 120px ;
   padding: 1em;
   padding-right:0 ;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 .siteLogo{
   display: flex;
