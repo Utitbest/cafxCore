@@ -26,7 +26,7 @@ const eyeSlash = `
 `;
 function showSection(target) {
   document.querySelectorAll('.main-section').forEach(section => {
-    section.style.display = 'none';
+    section.classList.remove('activeSection')
   });
 
   let existingSection = document.getElementById(target);
@@ -44,7 +44,9 @@ function showSection(target) {
         newSection.innerHTML = html;
         document.getElementById('section-container').appendChild(newSection);
 
-        newSection.style.display = 'flex';
+        setTimeout(()=>{
+          newSection.classList.add('activeSection')
+        }, 20)
       })
       .catch(err => {
         console.error(`Error loading ${target}.html`, err);
@@ -58,10 +60,15 @@ function showSection(target) {
             ${target} (not found) ⚠️
           </h1>`;
         document.getElementById('section-container').appendChild(fallback);
-        fallback.style.display = 'flex';
+       setTimeout(()=>{
+         fallback.classList.add('activeSection')
+       }, 20)
+
       });
   } else {
-    existingSection.style.display = 'flex';
+    setTimeout(()=>{
+      existingSection.classList.add('activeSection')
+    }, 20)
   }
 }
 document.querySelectorAll('.sidebar-item').forEach(item => {

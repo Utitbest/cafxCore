@@ -73,6 +73,7 @@ header > div{
   border-top-left-radius:40px ;
   border-bottom-left-radius:40px ;
 }
+
 .Navigator ul li a{
   width: 100%;
   height: 100%;
@@ -198,6 +199,16 @@ section{
   flex: 1;
 }
 
+.main-section {
+  display: none !important;
+  opacity: 0;
+  transition: opacity 23s ease;
+}
+
+.main-section.activeSection {
+  display: flex !important;
+  opacity: 1;
+}
 
 
 
