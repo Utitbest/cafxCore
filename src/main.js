@@ -32,7 +32,7 @@ function showSection(target) {
   let existingSection = document.getElementById(target);
 
   if (!existingSection) {
-    fetch(`sections/${target}.html`)
+    fetch(`/sections/${target}.html`)
       .then(res => res.text())
       .then(html => {
         if (html.includes('<html') || html.includes('<head') || html.includes('<!DOCTYPE')) {
