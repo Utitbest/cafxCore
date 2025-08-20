@@ -202,7 +202,7 @@ section{
 .main-section {
   display: none !important;
   opacity: 0;
-  transition: opacity 23s ease;
+  transition: opacity 0.3s ease;
 }
 
 .main-section.activeSection {

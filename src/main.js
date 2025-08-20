@@ -44,9 +44,7 @@ function showSection(target) {
         newSection.innerHTML = html;
         document.getElementById('section-container').appendChild(newSection);
 
-        setTimeout(()=>{
-          newSection.classList.add('activeSection')
-        }, 20)
+        newSection.classList.add('activeSection')
       })
       .catch(err => {
         console.error(`Error loading ${target}.html`, err);
@@ -60,15 +58,10 @@ function showSection(target) {
             ${target} (not found) ⚠️
           </h1>`;
         document.getElementById('section-container').appendChild(fallback);
-       setTimeout(()=>{
          fallback.classList.add('activeSection')
-       }, 20)
-
       });
   } else {
-    setTimeout(()=>{
       existingSection.classList.add('activeSection')
-    }, 20)
   }
 }
 document.querySelectorAll('.sidebar-item').forEach(item => {
