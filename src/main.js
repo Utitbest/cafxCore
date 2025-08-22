@@ -24,76 +24,148 @@ const eyeSlash = `
              1.676 0 3.246-.41 4.632-1.137" />
   </svg>
 `;
+// function showSection(target) {
+//   document.querySelectorAll('.main-section').forEach(section => {
+//     section.classList.remove('activeSection')
+//   });
+
+//   let existingSection = document.getElementById(target);
+
+//   if (!existingSection) {
+//     fetch(`/sections/${target}.html`)
+//       .then(res =>{
+//         if (!res.ok) throw new Error("Section not found");
+//         return res.text();
+//       })
+//       .then(html => {
+//         if (html.includes('<html') || html.includes('<head') || html.includes('<!DOCTYPE')) {
+//           throw new Error('Received full page HTML instead of section content');
+//         }
+        
+//         const newSection = document.createElement('section');
+//         newSection.id = target;
+//         newSection.classList.add('main-section');
+//         newSection.innerHTML = html;
+//         document.getElementById('section-container').appendChild(newSection);
+
+//         newSection.classList.add('activeSection')
+//       })
+//       .catch(err => {
+//         console.error(`Error loading ${target}.html`, err);
+       
+//         const fallback = document.createElement('section');
+//         fallback.id = target;
+//         fallback.classList.add('main-section');
+//         fallback.innerHTML = `
+//           <h1 style="font-size:50px; width:100%; height:100%;
+//           align-items:center; justify-content:center; display:flex;">
+//           ${target} (not found) ⚠️
+//           </h1>`;
+//         document.getElementById('section-container').appendChild(fallback);
+//         fallback.classList.add('activeSection')
+//       });
+//   } else {
+//       existingSection.classList.add('activeSection')
+//   }
+// }
+// document.querySelectorAll('.sidebar-item').forEach(item => {
+//   item.addEventListener('click', function(e) {
+//     e.preventDefault();
+
+//     const target = this.dataset.target;
+
+//     document.querySelectorAll('.sidebar-item').forEach(ee => ee.classList.remove('tabcolor'));
+//     this.classList.add('tabcolor');
+
+//     history.pushState({ section: target }, "", "/" + target);
+
+//     showSection(target);
+//   });
+// });
+// window.addEventListener('popstate', (event) => {
+//   const target = event.state?.section || "Dashboard"; 
+//   showSection(target);
+
+//   document.querySelectorAll('.sidebar-item').forEach(ee => ee.classList.remove('tabcolor'));
+//   const activeTab = document.querySelector(`[data-target="${target}"]`);
+//   if (activeTab) activeTab.classList.add('tabcolor');
+// });
+// window.addEventListener('DOMContentLoaded', () => {
+//   const path = window.location.pathname.replace("/", "") || "Dashboard";
+//   showSection(path);
+  
+//   const activeTab = document.querySelector(`[data-target="${path}"]`);
+//   if (activeTab) activeTab.classList.add('tabcolor');
+//   AboutBalance()
+// });
+
 function showSection(target) {
   document.querySelectorAll('.main-section').forEach(section => {
-    section.classList.remove('activeSection')
+    section.classList.remove('activeSection');
   });
 
   let existingSection = document.getElementById(target);
 
-  if (!existingSection) {
-    fetch(`/sections/${target}.html`)
-      .then(res => res.text())
-      .then(html => {
-        if (html.includes('<html') || html.includes('<head') || html.includes('<!DOCTYPE')) {
-          throw new Error('Received full page HTML instead of section content');
-        }
-        const newSection = document.createElement('section');
-        newSection.id = target;
-        newSection.classList.add('main-section');
-        newSection.innerHTML = html;
-        document.getElementById('section-container').appendChild(newSection);
-
-        newSection.classList.add('activeSection')
-      })
-      .catch(err => {
-        console.error(`Error loading ${target}.html`, err);
-
-        const fallback = document.createElement('section');
-        fallback.id = target;
-        fallback.classList.add('main-section');
-        fallback.innerHTML = `
-          <h1 style="font-size:50px; width:100%; height:100%;
-          align-items:center; justify-content:center; display:flex;">
-          ${target} (not found) ⚠️
-          </h1>`;
-        document.getElementById('section-container').appendChild(fallback);
-         fallback.classList.add('activeSection')
-      });
-  } else {
-      existingSection.classList.add('activeSection')
+  if (existingSection) {
+    existingSection.classList.add('activeSection');
+    return;
   }
+
+  fetch(`/sections/${target}.html`)
+    .then(res => {
+      if (!res.ok) throw new Error("Section not found");
+      return res.text();
+    })
+    .then(html => {
+      if (html.includes('<html') || html.includes('<head') || html.includes('<!DOCTYPE')) {
+        throw new Error('Invalid HTML: expected partial content');
+      }
+
+      const newSection = document.createElement('section');
+      newSection.id = target;
+      newSection.className = 'main-section activeSection';
+      newSection.innerHTML = html;
+
+      document.getElementById('section-container').appendChild(newSection);
+    })
+    .catch(() => {
+      const fallback = document.createElement('section');
+      fallback.id = target;
+      fallback.className = 'main-section activeSection';
+      fallback.innerHTML = `
+        <h1 style="font-size:50px; display:flex; align-items:center; justify-content:center; height:100%;">
+          ${target} (not found) ⚠️
+        </h1>`;
+      document.getElementById('section-container').appendChild(fallback);
+    });
 }
+
 document.querySelectorAll('.sidebar-item').forEach(item => {
-  item.addEventListener('click', function(e) {
+  item.addEventListener('click', e => {
     e.preventDefault();
-
-    const target = this.dataset.target;
-
-    document.querySelectorAll('.sidebar-item').forEach(ee => ee.classList.remove('tabcolor'));
-    this.classList.add('tabcolor');
-
+    const target = item.dataset.target;
+    document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('tabcolor'));
+    item.classList.add('tabcolor');
     history.pushState({ section: target }, "", "/" + target);
-
     showSection(target);
   });
 });
-window.addEventListener('popstate', (event) => {
-  const target = event.state?.section || "Dashboard"; 
+
+window.addEventListener('popstate', e => {
+  const target = e.state?.section || "Dashboard";
   showSection(target);
 
-  document.querySelectorAll('.sidebar-item').forEach(ee => ee.classList.remove('tabcolor'));
-  const activeTab = document.querySelector(`[data-target="${target}"]`);
-  if (activeTab) activeTab.classList.add('tabcolor');
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('tabcolor'));
+  document.querySelector(`[data-target="${target}"]`)?.classList.add('tabcolor');
 });
+
 window.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname.replace("/", "") || "Dashboard";
   showSection(path);
-  
-  const activeTab = document.querySelector(`[data-target="${path}"]`);
-  if (activeTab) activeTab.classList.add('tabcolor');
-  AboutBalance()
+
+  document.querySelector(`[data-target="${path}"]`)?.classList.add('tabcolor');
 });
+
 function AboutBalance(){
   function updateBalanceUI(){
   balances.textContent = visible ?  `$ ${realBalance}`: `$ ${hiddenBalance}` ;

@@ -90,15 +90,15 @@ header > div{
 section{
   width: 100%;
 }
-.Navigator ul li.tabcolor{
+.Navigator ul li a.tabcolor{
   background-color: white;
   transition: .3s background linear;
 }
-.Navigator ul li.tabcolor svg path{
+.Navigator ul li a.tabcolor svg path{
   fill: #4E10EF;
   stroke: #4E10EF;
 }
-.Navigator ul li.tabcolor p{
+.Navigator ul li a.tabcolor p{
   color: #4E10EF;
   font-weight: 600;
 }
