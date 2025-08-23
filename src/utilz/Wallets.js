@@ -2,7 +2,7 @@
 const ValueHider = document.getElementById('ValueHider');
 const balances = document.getElementById('CurrentRupies');
 const HotwalletpopNotify = document.getElementsByClassName('HotwalletpopNotify')[0];
-
+const typeofwallet = document.getElementById('typeofwallet');
 let visible = JSON.parse(localStorage.getItem('balanceVisible') ?? "true");
 let activeWallet = localStorage.getItem("activeWallet") || "Hotwallet";
 
@@ -89,7 +89,7 @@ function updateBalanceUI() {
   const real = walletBalances[activeWallet] ?? "0";
   if (balances) balances.textContent = visible ? `$ ${real}` : `$ ${hiddenBalance}`;
   if (ValueHider) ValueHider.innerHTML = visible ? eyeOpen : eyeSlash;
-
+  if (typeofwallet) typeofwallet.textContent = activeWallet === "Hotwallet" ? 'Hot Wallet' : 'Cold Wallet';
   if (HotwalletpopNotify) {
     HotwalletpopNotify.innerHTML =
       activeWallet === "Hotwallet" ? HotpopNotification : ColdpopNotification;
