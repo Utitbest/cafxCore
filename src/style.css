@@ -824,24 +824,28 @@ section{
 .HotwalletpopNotify{
   width: 100%;
   display: block;
-  padding: 20px;
   background: rgba(246, 246, 246, 1);
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   cursor: default;
 }
 .HotwalletpopNotify > div{
+  width: 100%;
+  display: block;
+  padding: 20px;
+}
+.HotwalletpopNotify > div > div{
   display: flex;
   width: 100%;
   justify-content: space-between;
   margin-bottom: .6em;
 }
-.HotwalletpopNotify ul{
+.HotwalletpopNotify > div ul{
   display: block;
   margin-left: 2em;
   margin-bottom: 1.4em;
 }
-.HotwalletpopNotify ul li{
+.HotwalletpopNotify > div ul li{
   list-style-type: disc;
   font-size: 16px;
   font-weight: 400;
@@ -980,4 +984,12 @@ section{
 }
 sup{
   font-size: 10px !important;
+}
+.targetbalance.selectedbutton{
+  background: rgba(255, 255, 255, 1);
+  color: black;
+}
+.targetbalance{
+  background-color: rgb(201, 130, 201);
+  color: white;
 }
