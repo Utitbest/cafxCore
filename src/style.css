@@ -6,6 +6,12 @@
   box-sizing: border-box;
   font-family: 'Noto sans', sans-serif;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+}
+
 body{
   background-color: white;
 }
@@ -23,13 +29,13 @@ li{
 #app{
   height: 100vh;
   width: 100%;
-  display: grid;
-  grid-template-columns: minmax(80px, 250px) 1fr;
+  display: flex;
   overflow: hidden;
 }
 header{
   height: 100%;
   display: block;
+  width: 240px;
   background: #4E10EF;
 }
 
@@ -89,6 +95,7 @@ header > div{
 }
 section{
   width: 100%;
+  margin-bottom: 2em;
 }
 .Navigator ul li a.tabcolor{
   background-color: white;
@@ -125,14 +132,16 @@ section{
   color: white;
 }
 #contentArea{
-  display: grid;
-  grid-template-rows: 80px 1fr;
+  display: block;
+  flex-direction: column;
   padding: 0 .5em;
   overflow-y:auto ;
+  flex: 1;
   position: relative;
 }
 #contentArea .topBar{
   display: grid;
+  height: 80px;
   align-items: center;
   grid-template-columns: 300px 1fr;
   position: sticky;
@@ -212,6 +221,11 @@ section{
   display: flex !important;
   opacity: 1;
 }
+
+
+
+
+
 
 
 
@@ -705,6 +719,11 @@ section{
 
 
 
+
+
+
+
+
 /* Wallets design Start here */
 
 #Wallet{
@@ -994,6 +1013,10 @@ sup{
   color: white;
 }
 
+
+
+
+
 /* Marketing page Start here */
 
 #Markets{
@@ -1047,11 +1070,10 @@ sup{
 }
 
 .recentMarkets{
-  max-width: 100%;
   width: 100%;
-  overflow: auto;
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: start;
   padding:0 1em;
@@ -1067,48 +1089,438 @@ sup{
 }
 
 .sortingtable{
-  padding: 20px;
+  overflow: hidden;       
+  display: block;   
 }
-.sortingtable > table {
-  width: 100%;
+.sortingtable > div{
+  max-width: 100%;
+  overflow-x: auto;
+}
+.sortingtable > div > table {
   border-collapse: collapse;
-  text-align: left;
+  width: 100%;
 }
 
-.sortingtable > table > .whytable th, .sortingtable > table > .whytable td {
+.sortingtable > div > table > .whytable th, .sortingtable > div > table > .whytable td {
   padding: 12px 16px;
   border-right: 1px solid #eee;
   border-bottom: none;
-  font-size: 14px;
+  font-size: 12px;
+
+  white-space: nowrap;  
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px; 
 }
 
-.sortingtable > table > th {
+.sortingtable > div > table > th {
   font-weight: 600;
   color: #555;
 }
 
-.sortingtable > table > td {
+.sortingtable > div > table > td {
   color: #222;
 }
 
-.sortingtable > table .token-cell {
+.sortingtable > div > table .token-cell {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.sortingtable > table .token-cell svg {
+.sortingtable > div > table .token-cell svg {
   width: 24px;
   height: 24px;
   border-radius: 50%;
 }
 
-.sortingtable > table .positive {
+.sortingtable > div >table .positive {
   color: #22c55e; 
   font-weight: 500;
 }
 
-.sortingtable > table .small {
+.sortingtable > div > table .small {
   color: #666;
   font-size: 13px;
+}
+
+
+
+
+
+
+
+
+/* Trading page Begins here */
+#Trading{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1.3em;
+}
+.trading_grahp{
+  width: 100%;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+.trading_grahp > div{
+  border-radius: 8px;
+}
+.trading_grahp >:nth-child(1) > img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+}
+.trading_grahp >:nth-child(2){
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  background: rgba(235, 237, 240, 1);
+
+}
+.tradingBotControl{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tradingBotControl > p{
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(22, 22, 22, 1);
+}
+.tradingBotControl > div{
+  gap: 1em;
+  display: flex;
+}
+.tradingBotControl > div > button{
+  padding: 7px 17px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 400;
+  border-radius: 6px;
+}
+.trading_grahp >:nth-child(2) > input{
+  width: 100%;
+  padding: 15px 32px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.27);
+  border-radius: 7px;
+}
+.start_stop{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+}
+.start_stop > button{
+  padding: 13px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.status{
+  width: 100%;
+  gap: 1.5em;
+  display: flex;
+}
+.status span{
+  font-weight: 400; 
+  display: flex;
+  font-size: 14px;
+}
+.atasa{
+  display:grid ;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+.atasa > div{
+  background: rgba(245, 246, 247, 1);
+  padding: 30px;
+  display: block;
+  border-radius: 8px;
+}
+.atasa > div > p{
+  color: rgba(83, 95, 119, 1);
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: .6em;
+}
+.atasa > div > h3{
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(22, 22, 22, 1);
+}
+.opentradTable{
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 20px;
+}
+.opentradTable h3{
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(22, 22, 22, 1);
+  margin-bottom: 1em;
+}
+.opentablecontainer > table > thead tr th, .opentablecontainer > table > tbody tr td{
+  border-bottom: none;
+}
+.trade_histories{
+  padding: 20px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+.trade_histories h3{
+  margin-bottom: 1em;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(22, 22, 22, 1);
+}
+.trade_histories > div > table > thead tr th, .trade_histories > div > table > tbody tr td{
+  border-bottom: none;
+}
+.Top_Gainers{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 52px;
+}
+.Top_Gainers > div{
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  gap: 10px;
+  padding:20px ;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+.Top_Gainers > div > h3{
+  font-size: 16px;
+  font-weight: 600;
+}
+.topgainlistshow{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.topgainlistshow > div{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.topgainlistshow > div > span{
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+.topgainlistshow > div > span > p{
+  font-size: 14px;
+  color: rgba(22, 22, 22, 1);
+  font-weight: 400;
+}
+.Trending_Coins{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.Trending_Coins > h3{
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(22, 22, 22, 1);
+}
+.Trending_Coins > div{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.Trending_Coins > div > div{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 1em;
+}
+.Trending_Coins > div > div > p{
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(22, 22, 22, 1);
+}
+
+
+
+
+
+
+
+
+
+/* Trade History begins here  */
+
+#TradeHistory{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1.3em;
+}
+
+.Trade_istory{
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  gap: 1em;
+}
+.Trade_istory > h3{
+  font-weight: 600;
+  font-size: 16px;
+}
+.entrytables > table > thead > tr > th, .entrytables > table > tbody > tr > td{
+  border-bottom: none ;
+}
+
+.Open_business{
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  gap: 1em;
+}
+
+.Open_business h3{
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.sushi > table > thead > tr > th, .sushi > table > tbody > tr > td{
+  border-bottom: none ;
+}
+
+
+
+
+
+
+
+
+/* Analiysis page begins here bro */
+
+#Analiysis{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1.3em;
+}
+.Bot_analiysis{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+.Bot_analiysis > div{
+  border: 0.7px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  gap:7px;
+  padding: 25px 20px;
+  border-radius: 11px;
+}
+.Bot_analiysis > div > p{
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(22, 22, 22, 1);
+}
+.Bot_analiysis > div > h3{
+  color: rgba(78, 16, 239, 1);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.Trading_Bot_Controls{
+  width: 100%;
+  display: grid;
+  grid-template-columns:  repeat(auto-fit, minmax(250px, 1fr));
+  gap: 13px;
+}
+.Trading_Bot_Controls > div{
+  border: 0.98px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 20px;
+  display: block;
+}
+
+.Trading_Bot_Controls > div > h3{
+  font-weight: 600;
+  font-size: 16px;
+  color: rgba(22, 22, 22, 1);
+  margin-bottom: 10px;
+}
+.Trading_Bot_Controls > div > div > img{
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.Decision_Logic{
+  width: 100%;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  gap: 10px;
+  border-radius: 10px;
+  display:block ;
+}
+.Decision_Logic > h3{
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.Decision_Logic > div{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.Decision_Logic > div > div{
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+.Decision_Logic > div > div > span{
+  display: flex;
+  align-items: center;
+}
+
+.Recent_Insights{
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  display: block;
+  padding: 20px;
+  border-radius: 8px;
+}
+.Recent_Insights h3{
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 11px;
+
+}
+.Recent_Insights > div{
+  display: flex;
+  width: 100%;
+  gap: 1em;
+  flex-direction: column;
+}
+.Recent_Insights > div > article{
+  font-size: 14px;
+  font-weight: 400;
 }
