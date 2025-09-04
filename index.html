@@ -251,7 +251,7 @@
                 <div class="Bot_Status">
                   <p>Bot Status</p>
                   <h3>Running</h3>
-                  <button>Pause Bot</button>
+                  <button id="BotStatus">Pause Bot</button>
                 </div>
               </div>
             </div>
@@ -860,6 +860,158 @@
 
         </div>
 
+      </div>
+
+
+      <div style="display: none;" id="OnclickTransferBudPopUp">
+        <form class="PopInner">
+          <div class="Transfer_Details">
+            <h3>Transfer Details</h3>
+
+            <span class="Xmark_Close" style="cursor: pointer;">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01015 4.51015C4.55688 3.96341 5.44331 3.96341 5.99005 4.51015L12.0001 10.5202L18.0101 4.51015C18.5569 3.96341 19.4433 3.96341 19.99 4.51015C20.5368 5.05688 20.5368 5.94331 19.99 6.49005L13.98 12.5001L19.99 18.5101C20.5368 19.0569 20.5368 19.9433 19.99 20.49C19.4433 21.0368 18.5569 21.0368 18.0101 20.49L12.0001 14.48L5.99005 20.49C5.44331 21.0368 4.55688 21.0368 4.01015 20.49C3.46341 19.9433 3.46341 19.0569 4.01015 18.5101L10.0202 12.5001L4.01015 6.49005C3.46341 5.94331 3.46341 5.05688 4.01015 4.51015Z" fill="#1F2937"/>
+              </svg>
+            </span>
+          </div>
+
+          <div class="transferForm">
+            <label for="transfer_from">Transfer From</label>
+            
+            <select name="transfer_from" id="transfer_from">
+              <option value="html">Hot Wallet</option>
+              <option value="css">Cold Wallet</option>
+            </select>
+            <p>Available Balance: $250,000</p>
+          </div>
+
+          <div class="transferForm">
+            <label for="transfer_to">Transfer To</label>
+            
+            <select name="transfer_to" id="transfer_to">
+                <option value="html">Hot Wallet</option>
+                <option value="css">Cold Wallet</option>
+            </select>
+          </div>
+          <div class="transferForm">
+            <label for="coin">Transfer From</label>
+            
+            <div class="custom-select">
+              <div class="selected1">
+                <div class="selected">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="12" fill="black"/>
+                  <path d="M7.4392 14.8428C7.52236 14.7597 7.6367 14.7112 7.75797 14.7112H18.7555C18.9564 14.7112 19.0569 14.9537 18.9149 15.0958L16.7424 17.2683C16.6592 17.3514 16.5449 17.3999 16.4236 17.3999H5.42611C5.22515 17.3999 5.12467 17.1574 5.26673 17.0153L7.4392 14.8428Z" fill="url(#paint0_linear_3516_956)"/>
+                  <path d="M7.4392 6.73176C7.52582 6.64861 7.64016 6.6001 7.75797 6.6001H18.7555C18.9564 6.6001 19.0569 6.84264 18.9149 6.9847L16.7424 9.15717C16.6592 9.24033 16.5449 9.28884 16.4236 9.28884H5.42611C5.22515 9.28884 5.12467 9.0463 5.26673 8.90424L7.4392 6.73176Z" fill="url(#paint1_linear_3516_956)"/>
+                  <path d="M16.7424 10.7613C16.6592 10.6781 16.5449 10.6296 16.4236 10.6296H5.42611C5.22515 10.6296 5.12467 10.8722 5.26673 11.0142L7.4392 13.1867C7.52236 13.2699 7.6367 13.3184 7.75797 13.3184H18.7555C18.9564 13.3184 19.0569 13.0758 18.9149 12.9338L16.7424 10.7613Z" fill="url(#paint2_linear_3516_956)"/>
+                  <defs>
+                  <linearGradient id="paint0_linear_3516_956" x1="-19.6561" y1="4.55967" x2="-19.9487" y2="19.2835" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  <linearGradient id="paint1_linear_3516_956" x1="-22.9841" y1="2.82235" x2="-23.2767" y2="17.5462" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  <linearGradient id="paint2_linear_3516_956" x1="-21.3307" y1="3.68546" x2="-21.6233" y2="18.4093" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  </defs>
+                  </svg>
+                Solana
+                </div>
+                <span class="arrow">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </div>
+              <ul class="options">
+                <li data-value="solana">
+                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="12" fill="black"/>
+                  <path d="M7.4392 14.8428C7.52236 14.7597 7.6367 14.7112 7.75797 14.7112H18.7555C18.9564 14.7112 19.0569 14.9537 18.9149 15.0958L16.7424 17.2683C16.6592 17.3514 16.5449 17.3999 16.4236 17.3999H5.42611C5.22515 17.3999 5.12467 17.1574 5.26673 17.0153L7.4392 14.8428Z" fill="url(#paint0_linear_3516_956)"/>
+                  <path d="M7.4392 6.73176C7.52582 6.64861 7.64016 6.6001 7.75797 6.6001H18.7555C18.9564 6.6001 19.0569 6.84264 18.9149 6.9847L16.7424 9.15717C16.6592 9.24033 16.5449 9.28884 16.4236 9.28884H5.42611C5.22515 9.28884 5.12467 9.0463 5.26673 8.90424L7.4392 6.73176Z" fill="url(#paint1_linear_3516_956)"/>
+                  <path d="M16.7424 10.7613C16.6592 10.6781 16.5449 10.6296 16.4236 10.6296H5.42611C5.22515 10.6296 5.12467 10.8722 5.26673 11.0142L7.4392 13.1867C7.52236 13.2699 7.6367 13.3184 7.75797 13.3184H18.7555C18.9564 13.3184 19.0569 13.0758 18.9149 12.9338L16.7424 10.7613Z" fill="url(#paint2_linear_3516_956)"/>
+                  <defs>
+                  <linearGradient id="paint0_linear_3516_956" x1="-19.6561" y1="4.55967" x2="-19.9487" y2="19.2835" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  <linearGradient id="paint1_linear_3516_956" x1="-22.9841" y1="2.82235" x2="-23.2767" y2="17.5462" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  <linearGradient id="paint2_linear_3516_956" x1="-21.3307" y1="3.68546" x2="-21.6233" y2="18.4093" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  </defs>
+                  </svg>
+
+                  Solana
+                </li>
+                <li data-value="bitcoin">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="12" fill="black"/>
+                  <path d="M7.4392 14.8428C7.52236 14.7597 7.6367 14.7112 7.75797 14.7112H18.7555C18.9564 14.7112 19.0569 14.9537 18.9149 15.0958L16.7424 17.2683C16.6592 17.3514 16.5449 17.3999 16.4236 17.3999H5.42611C5.22515 17.3999 5.12467 17.1574 5.26673 17.0153L7.4392 14.8428Z" fill="url(#paint0_linear_3516_956)"/>
+                  <path d="M7.4392 6.73176C7.52582 6.64861 7.64016 6.6001 7.75797 6.6001H18.7555C18.9564 6.6001 19.0569 6.84264 18.9149 6.9847L16.7424 9.15717C16.6592 9.24033 16.5449 9.28884 16.4236 9.28884H5.42611C5.22515 9.28884 5.12467 9.0463 5.26673 8.90424L7.4392 6.73176Z" fill="url(#paint1_linear_3516_956)"/>
+                  <path d="M16.7424 10.7613C16.6592 10.6781 16.5449 10.6296 16.4236 10.6296H5.42611C5.22515 10.6296 5.12467 10.8722 5.26673 11.0142L7.4392 13.1867C7.52236 13.2699 7.6367 13.3184 7.75797 13.3184H18.7555C18.9564 13.3184 19.0569 13.0758 18.9149 12.9338L16.7424 10.7613Z" fill="url(#paint2_linear_3516_956)"/>
+                  <defs>
+                  <linearGradient id="paint0_linear_3516_956" x1="-19.6561" y1="4.55967" x2="-19.9487" y2="19.2835" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  <linearGradient id="paint1_linear_3516_956" x1="-22.9841" y1="2.82235" x2="-23.2767" y2="17.5462" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  <linearGradient id="paint2_linear_3516_956" x1="-21.3307" y1="3.68546" x2="-21.6233" y2="18.4093" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  </defs>
+                  </svg>
+
+                  Bitcoin
+                </li>
+                <li data-value="ethereum">
+                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="12" fill="black"/>
+                  <path d="M7.4392 14.8428C7.52236 14.7597 7.6367 14.7112 7.75797 14.7112H18.7555C18.9564 14.7112 19.0569 14.9537 18.9149 15.0958L16.7424 17.2683C16.6592 17.3514 16.5449 17.3999 16.4236 17.3999H5.42611C5.22515 17.3999 5.12467 17.1574 5.26673 17.0153L7.4392 14.8428Z" fill="url(#paint0_linear_3516_956)"/>
+                  <path d="M7.4392 6.73176C7.52582 6.64861 7.64016 6.6001 7.75797 6.6001H18.7555C18.9564 6.6001 19.0569 6.84264 18.9149 6.9847L16.7424 9.15717C16.6592 9.24033 16.5449 9.28884 16.4236 9.28884H5.42611C5.22515 9.28884 5.12467 9.0463 5.26673 8.90424L7.4392 6.73176Z" fill="url(#paint1_linear_3516_956)"/>
+                  <path d="M16.7424 10.7613C16.6592 10.6781 16.5449 10.6296 16.4236 10.6296H5.42611C5.22515 10.6296 5.12467 10.8722 5.26673 11.0142L7.4392 13.1867C7.52236 13.2699 7.6367 13.3184 7.75797 13.3184H18.7555C18.9564 13.3184 19.0569 13.0758 18.9149 12.9338L16.7424 10.7613Z" fill="url(#paint2_linear_3516_956)"/>
+                  <defs>
+                  <linearGradient id="paint0_linear_3516_956" x1="-19.6561" y1="4.55967" x2="-19.9487" y2="19.2835" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  <linearGradient id="paint1_linear_3516_956" x1="-22.9841" y1="2.82235" x2="-23.2767" y2="17.5462" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  <linearGradient id="paint2_linear_3516_956" x1="-21.3307" y1="3.68546" x2="-21.6233" y2="18.4093" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75FBAB"/>
+                  <stop offset="1" stop-color="#CA36F6"/>
+                  </linearGradient>
+                  </defs>
+                  </svg>
+
+                  Ethereum
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="transferForm">
+            <label for="Amount">Amount (Minimum $2,000)</label>
+            
+            <input type="number" placeholder="Enter amount" id="Amount" name="Amount">
+          </div>
+
+          <button class="TransferSubmitButton" type="submit">Confirm Transfer</button>
+        </form>
       </div>
     </div>
     <script type="module" src="/src/main.js"></script>

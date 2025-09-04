@@ -1,11 +1,12 @@
-
+import {showToast} from './Toastify'
 const ValueHider = document.getElementById('ValueHider');
 const balances = document.getElementById('CurrentRupies');
 const HotwalletpopNotify = document.getElementsByClassName('HotwalletpopNotify')[0];
 const typeofwallet = document.getElementById('typeofwallet');
+const TransferFormElement = document.getElementById('OnclickTransferBudPopUp')
+
 let visible = JSON.parse(localStorage.getItem('balanceVisible') ?? "true");
 let activeWallet = localStorage.getItem("activeWallet") || "Hotwallet";
-
 const coldBalance = "150,000";
 const hotBalance  = "250,000";
 const walletBalances = {
@@ -124,4 +125,17 @@ export function DifferentBalance() {
     });
   });
   updateBalanceUI();
+}
+
+export function WalletTransferPopUp(){
+  document.querySelector('.transferButton')?.addEventListener('click', ()=>{
+    TransferFormElement.style.display = 'flex';
+  })
+
+  document.querySelector('.Xmark_Close')?.addEventListener('click', ()=>{
+    TransferFormElement.style.display = 'none';
+  })
+  // TransferFormElement.addEventListener('dblclick', ()=>{
+  //   TransferFormElement.style.display = 'none'
+  // })
 }

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
 
 *{
   padding: 0;
@@ -9,10 +10,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; 
-}
-
-body{
+  overflow-x: hidden;
   background-color: white;
 }
 a{
@@ -31,6 +29,8 @@ li{
   width: 100%;
   display: flex;
   overflow: hidden;
+  position: relative;
+
 }
 header{
   height: 100%;
@@ -1616,4 +1616,162 @@ sup{
   border-radius: 6.56px;
   padding: 15px 20px;
   outline-color: #4E10EF;
+}
+
+
+
+/* Transfer Button */
+#OnclickTransferBudPopUp{
+  /* display: none; */
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background: #00000080;
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  z-index: 60;
+}
+
+#OnclickTransferBudPopUp .PopInner{
+  width: 650px;
+  padding: 30px 20px;
+  border-radius: 16px;
+  gap: 1em;
+  display: flex;
+  background-color: rgba(255, 255, 255, 1);
+  flex-direction: column;
+}
+#OnclickTransferBudPopUp .PopInner > .Transfer_Details{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+#OnclickTransferBudPopUp .PopInner > .Transfer_Details > h3{
+  font-size: 20px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+}
+.transferForm {
+  display: flex;
+  flex-direction: column;
+  gap: .2em;
+}
+.transferForm > select{
+  width: 100%;
+  background: rgba(250, 251, 251, 1);
+  border: 1px solid rgba(0, 0, 0, 0.27);
+  border-radius: 6.56px;
+  padding: 15px 20px;
+  outline-color: #4E10EF;
+}
+.transferForm > label{
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(109, 120, 140, 1);
+}
+.transferForm > p{
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+  text-align: right;
+  color: rgba(109, 120, 140, 1);
+}
+
+.transferForm > input{
+  width: 100%;
+  background: rgba(250, 251, 251, 1);
+  border: 1px solid rgba(0, 0, 0, 0.27);
+  border-radius: 6.56px;
+  padding: 15px 20px;
+  outline-color: #4E10EF;
+}
+.TransferSubmitButton{
+  width: 100%;
+  color: rgba(250, 251, 251, 1);
+  border-radius: 6.56px;
+  padding: 15px 20px;
+  background: rgba(78, 16, 239, 1);
+  cursor: pointer;
+  margin-top: .7em;
+}
+
+.toast-close{
+  margin-left: 2em !important;
+}
+.custom-select {
+  position: relative;
+  top:100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+}
+
+.selected1 .selected {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(250, 251, 251, 1);
+  flex: 1;
+  border-radius: 6px;
+  padding: 15px;
+}
+.selected1{
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: rgba(250, 251, 251, 1);
+}
+.selected1:focus{
+  border: 1px solid #4E10EF;
+  outline-color: #4E10EF;
+}
+
+.custom-select .selected img {
+  width: 20px;
+  height: 20px;
+}
+
+.custom-select .options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  background: rgba(250, 251, 251, 1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.custom-select .options li {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.custom-select .options li:hover {
+  background: #f2f2f2;
+}
+.custom-select .arrow {
+  margin-left: auto; 
+  display: flex;
+  align-items: center;
+}
+.custom-select .options svg {
+  width: 20px;
+  height: 20px;
 }

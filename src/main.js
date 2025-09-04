@@ -1,5 +1,5 @@
-import { AboutBalance, DifferentBalance } from "./utilz/Wallets";
-
+import { AboutBalance, DifferentBalance, WalletTransferPopUp } from "./utilz/Wallets";
+import { showToast } from "./utilz/Toastify";
 
 function showSection(target) {
   document.querySelectorAll('.main-section').forEach(section => {
@@ -61,6 +61,36 @@ window.addEventListener('DOMContentLoaded', () => {
   document.querySelector(`[data-target="${target}"]`)?.classList.add('tabcolor');
   AboutBalance()
   DifferentBalance()
+  dropDown()
+  WalletTransferPopUp()
+  BottonStatus()
 });
+function dropDown(){
+  const select = document.querySelector(".custom-select");
+  const selected = select.querySelector(".selected");
+  const options = select.querySelector(".options")
 
+  selected.addEventListener("click", () => {
+    options.style.display = options.style.display === "block" ? "none" : "block";
+  });
 
+  options.addEventListener("click", (e) => {
+    if (e.target.closest("li")) {
+      const li = e.target.closest("li");
+      selected.innerHTML = li.innerHTML;
+      options.style.display = "none";
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!select.contains(e.target)) {
+      options.style.display = "none";
+    }
+  });
+
+}
+function BottonStatus(){
+  document.getElementById('BotStatus')?.addEventListener('click', ()=>{
+    showToast('Say Hello to the World', 'WalletPaused')
+  })
+}
