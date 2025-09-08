@@ -1,7 +1,16 @@
 import { AboutBalance, DifferentBalance, WalletTransferPopUp } from "./utilz/Wallets";
 import { showToast } from "./utilz/Toastify";
+let currentFetchController = null;
 
 function showSection(target) {
+
+  if(currentFetchController){
+    currentFetchController.abort()
+  }
+
+  currentFetchController = new AbortController();
+  const { signal } = currentFetchController;
+
   document.querySelectorAll('.main-section').forEach(section => {
     section.classList.remove('activeSection');
   });
@@ -13,12 +22,13 @@ function showSection(target) {
     return;
   }
 
-  fetch(`/sections/${target}.html`)
+  fetch(`/sections/${target}.html`, { signal })
     .then(res => {
       if (!res.ok) throw new Error("Section not found");
       return res.text();
     })
     .then(html => {
+      
       if (html.includes('<html') || html.includes('<head') || html.includes('<!DOCTYPE')) {
         throw new Error('Invalid HTML: expected partial content');
       }
@@ -30,7 +40,12 @@ function showSection(target) {
 
       document.getElementById('section-container').appendChild(newSection);
     })
-    .catch(() => {
+    .catch(err => {
+      if(err.name === "AbortError") {
+        console.log(`Fetch for "${target}" was aborted`);
+        return;
+      }
+      console.error("Fetch error:", err);
       const fallback = document.createElement('section');
       fallback.id = target;
       fallback.className = 'main-section activeSection';
