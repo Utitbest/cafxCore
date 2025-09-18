@@ -135,7 +135,4 @@ export function WalletTransferPopUp(){
   document.querySelector('.Xmark_Close')?.addEventListener('click', ()=>{
     TransferFormElement.style.display = 'none';
   })
-  // TransferFormElement.addEventListener('dblclick', ()=>{
-  //   TransferFormElement.style.display = 'none'
-  // })
 }
